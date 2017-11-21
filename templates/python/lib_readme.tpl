@@ -1,144 +1,173 @@
-<img src="https://avatars2.githubusercontent.com/u/2810941?v=3&s=96" alt="Google Cloud Platform logo" title="Google Cloud Platform" align="right" height="96" width="96"/>
+.. image:: https://avatars2.githubusercontent.com/u/2810941?v=3&s=96
+   :height: 96px
+   :width: 96px
+   :alt: Google Cloud Platform logo
+   :align: right
 
-# [{{name}}: {{display}} Client](https://github.com{{repoPath}})
+`{{name}}: {{display}} Client <https://github.com{{repoPath}}>`__
+=========================================================================
 
-{{release_quality release_quality}}
-[![CircleCI](https://img.shields.io/circleci/project/github{{repoPath}}.svg?style=flat)](https://circleci.com/gh{{repoPath}})
-[![AppVeyor](https://ci.appveyor.com/api/projects/status/github{{repoPath}}?branch=master&svg=true)](https://ci.appveyor.com/project{{repoPath}})
-[![codecov](https://img.shields.io/codecov/c/github{{repoPath}}/master.svg?style=flat)](https://codecov.io/gh{{repoPath}})
+|release level| |CircleCI| |AppVeyor| |codecov|
 
-> {{display}} idiomatic client for [{{short_name}}][product-docs].
+    {{display}} idiomatic client for
+    `{{short_name}} <{{docs_url}}>`__.
 
 {{description}}
 
-{{#if deprecated}}
-| :warning: Deprecated Module |
-| --- |
-| This library is **deprecated**. {{deprecated}} |
-{{/if}}
+{% if deprecated %} 
+\| :warning: Deprecated Module \| 
+\| — \| 
+\| This library is **deprecated**. {{deprecated}} \| 
+{% endif %}
 
-* [{{short_name}} {{display}} Client API Reference][client-docs]
-* [github.com{{repoPath}}](https://github.com{{repoPath}})
-* [{{short_name}} Documentation][product-docs]
+-  `{{short_name}} {{display}} Client API Reference <{{client_reference_url}}>`__
+-  `github.com{{repoPath}} <https://github.com{{repoPath}}>`__
+-  `{{short_name}} Documentation <{{docs_url}}>`__
 
 Read more about the client libraries for Cloud APIs, including the older
-Google APIs Client Libraries, in [Client Libraries Explained][explained].
-
-[explained]: https://cloud.google.com/apis/docs/client-libraries-explained
+Google APIs Client Libraries, in `Client Libraries
+Explained <https://cloud.google.com/apis/docs/client-libraries-explained>`__.
 
 **Table of contents:**
 
-* [Quickstart](#quickstart)
-  * [Before you begin](#before-you-begin)
-  * [Installing the client library](#installing-the-client-library)
-  * [Using the client library](#using-the-client-library)
+-  `Quickstart <#quickstart>`__
+
+   -  `Before you begin <#before-you-begin>`__
+   -  `Installing the client library <#installing-the-client-library>`__
+   -  `Using the client library <#using-the-client-library>`__ 
+
 {{#if samples.length}}
-* [Samples](#samples)
+-  `Samples <#samples>`__ 
 {{/if}}
-* [Versioning](#versioning)
-* [Contributing](#contributing)
-* [License](#license)
+-  `Versioning <#versioning>`__
+-  `Contributing <#contributing>`__
+-  `License <#license>`__
 
-## Quickstart
+Quickstart
+----------
 
-### Before you begin
+Before you begin
+~~~~~~~~~~~~~~~~
 
-1.  Select or create a Cloud Platform project.
+1. Select or create a Cloud Platform project.
 
-    [Go to the projects page][projects]
+  `Go to the projects page`_
 
 {{#unless suppress_billing}}
-1.  Enable billing for your project.
+1. Enable billing for your project.
 
-    [Enable billing][billing]
+  `Enable billing`_
+{{/if}}
 
-{{/unless}}
 {{#if api_id}}
-1.  Enable the {{name}} API.
+1. Enable the {{name}} API.
 
-    [Enable the API][enable_api]
-
+  `Enable the API`_
 {{/if}}
-1.  [Set up authentication with a service account][auth] so you can access the
-    API from your local workstation.
 
-[projects]: https://console.cloud.google.com/project
-{{#unless suppress_billing}}
-[billing]: https://support.google.com/cloud/answer/6293499#enable-billing
-{{/unless}}
-[enable_api]: https://console.cloud.google.com/flows/enableapi?apiid={{api_id}}
-[auth]: https://cloud.google.com/docs/authentication/getting-started
+1. `Set up authentication with a service account`_ so you
+can access the API from your local workstation.
 
-### Installing the client library
+.. _Go to the projects page: https://console.cloud.google.com/project
+.. _Enable billing: https://support.google.com/cloud/answer/6293499#enable-billing
+.. _Enable the API: https://console.cloud.google.com/flows/enableapi?apiid={{api_id}}
+.. _Set up authentication with a service account: https://cloud.google.com/docs/authentication/getting-started
+
+
+Installing the client library
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     {{lib_install_cmd}}
 
 {{#if quickstart}}
-### Using the client library
 
-```{{syntax_highlighting_ext}}
-{{{quickstart}}}
-```
+Using the client library
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: {{syntax_highlighting_ext}}
+
+  {{{quickstart}}}
 {{/if}}
 
 {{#if samples.length}}
-## Samples
 
-Samples are in the [`samples/`](https://github.com{{repoPath}}/tree/master/samples) directory. The samples' `README.md`
-has instructions for running the samples.
+Samples
+~~~~~~~
 
-| Sample                      | Source Code                       | Try it |
-| --------------------------- | --------------------------------- | ------ |
-{{#each samples}}
-| {{name}} | [source code](https://github.com{{../repoPath}}/blob/master/samples/{{file}}) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com{{../repoPath}}&page=editor&open_in_editor=samples/{{file}},samples/README.md) |
-{{/each}}
+Samples are in the `samples\ <https://github.com{{repoPath}}/tree/master/samples>`__
+directory. The samples’ ``README.md`` has instructions for running the
+samples.
+
++--------+-------------+--------+
+| Sample | Source Code | Try it |
++========+=============+========+
++--------+-------------+--------+
+
+{{#each samples}} 
+\| {{name}} \| `source code <https://github.com{{../repoPath}}/blob/master/samples/{{file}}>`__ \| |Open in Cloud Shell {{name}}| \|
+
+.. |Open in Cloud Shell {{name}}| image:: http://gstatic.com/cloudssh/images/open-btn.png
+   :target: https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com{{../repoPath}}&page=editor&open_in_editor=samples/{{file}},samples/README.md
+
+{{/each}} 
 {{/if}}
 
-The [{{short_name}} {{display}} Client API Reference][client-docs] documentation
-also contains samples.
+The `{{short_name}} {{display}} Client API
+Reference <{{client_reference_url}}>`__ documentation also
+contains samples.
 
-## Versioning
+Versioning
+----------
 
-This library follows [Semantic Versioning](http://semver.org/).
+This library follows `Semantic Versioning <http://semver.org/>`__.
 
-{{#if_eq release_quality 'ga'}}
-This library is considered to be **General Availability (GA)**. This means it
-is stable; the code surface will not change in backwards-incompatible ways
-unless absolutely necessary (e.g. because of critical security issues) or with
-an extensive deprecation period. Issues and requests against **GA** libraries
-are addressed with the highest priority.
+{{#if_eq release_quality ‘ga’}} 
+This library is considered to be
+**General Availability (GA)**. This means it is stable; the code surface
+will not change in backwards-incompatible ways unless absolutely
+necessary (e.g. because of critical security issues) or with an
+extensive deprecation period. Issues and requests against **GA**
+libraries are addressed with the highest priority. 
 {{/if_eq}}
-{{#if_eq release_quality 'beta'}}
-This library is considered to be in **beta**. This means it is expected to be
-mostly stable while we work toward a general availability release; however,
-complete stability is not guaranteed. We will address issues and requests
-against beta libraries with a high priority.
+{{#if_eq release_quality ‘beta’}}
+This library is considered to be in **beta**.
+This means it is expected to be mostly stable while we work toward a
+general availability release; however, complete stability is not
+guaranteed. We will address issues and requests against beta libraries
+with a high priority.
 {{/if_eq}}
-{{#if_eq release_quality 'alpha'}}
+{{#if_eq release_quality ‘alpha’}} 
 This library is considered to be in **alpha**. This means it is still a
 work-in-progress and under active development. Any release is subject to
-backwards-incompatible changes at any time.
+backwards-incompatible changes at any time. 
 {{/if_eq}}
-{{#if_eq release_quality 'deprecated'}}
-This library is **deprecated**. This means that it is no longer being
-actively maintained and the only updates the library will receive will
-be for critical security issues. {{#if deprecated}}{{deprecated}}{{/if}}
+{{#if_eq release_quality ‘deprecated’}} This library is **deprecated**. This means that it is no longer being actively maintained and the only
+updates the library will receive will be for critical security issues.{{#if deprecated}}{{deprecated}}{{/if}} 
 {{/if_eq}}
 
-More Information: [Google Cloud Platform Launch Stages][launch_stages]
+More Information: `Google Cloud Platform Launch
+Stages <https://cloud.google.com/terms/launch-stages>`__
 
-[launch_stages]: https://cloud.google.com/terms/launch-stages
+Contributing
+------------
 
-## Contributing
+Contributions welcome! See the `Contributing
+Guide <https://github.com{{repoPath}}/blob/master/.github/CONTRIBUTING.md>`__.
 
-Contributions welcome! See the [Contributing Guide](https://github.com{{repoPath}}/blob/master/.github/CONTRIBUTING.md).
-
-## License
+License
+-------
 
 Apache Version 2.0
 
-See [LICENSE](https://github.com{{repoPath}}/blob/master/LICENSE)
+See
+`LICENSE <https://github.com{{repoPath}}/blob/master/LICENSE>`__
 
-[client-docs]: {{client_reference_url}}
-[product-docs]: {{docs_url}}
-[shell_img]: http://gstatic.com/cloudssh/images/open-btn.png
+
+.. |release level| image:: https://img.shields.io/badge/release%20level-general%20availability%20%28GA%29-brightgreen.svg?style=flat
+   :target: https://cloud.google.com/terms/launch-stages
+.. |CircleCI| image:: https://img.shields.io/circleci/project/github{{repoPath}}.svg?style=flat
+   :target: https://circleci.com/gh{{repoPath}}
+.. |AppVeyor| image:: https://ci.appveyor.com/api/projects/status/github{{repoPath}}?branch=master&svg=true
+   :target: https://ci.appveyor.com/project{{repoPath}}
+.. |codecov| image:: https://img.shields.io/codecov/c/github{{repoPath}}/master.svg?style=flat
+   :target: https://codecov.io/gh{{repoPath}}
